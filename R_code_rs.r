@@ -7,7 +7,7 @@ library(raster)
 setwd("C:/lab/")
 
 # import .grd data end name it l2011
-l2011 <- brick("p224r63_l2011.grd") 
+l2011 <- brick("p224r63_2011.grd") 
 # we use this "" for work/data out of r
 l2011 
 # we see which data there are inside the file
