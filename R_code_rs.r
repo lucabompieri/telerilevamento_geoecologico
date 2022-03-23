@@ -4,11 +4,13 @@
 library(raster)
 
 # get the working directory (wd)
-setwd("C:/lab")
+setwd("C:/lab/")
 
 # import .grd data end name it l2011
-l2011 <- brick("p224r63_l2011.grd") # we use this "" for work/data out of r
-l2011 # we see which data there are inside the file
+l2011 <- brick("p224r63_l2011.grd") 
+# we use this "" for work/data out of r
+l2011 
+# we see which data there are inside the file
 
 # plot the data
 plot(l2011)
@@ -48,7 +50,7 @@ png("banda1.png")
 plot(l2011$B1_sre, col=clb)
 dev.off() # close the function png
 
-# plot B2 fro dark green to green to light green
+# plot B2 from dark green to green to light green
 clg <- colorRampPalette(c("dark green", "green", "light green")) (100)
 plot(l2011$B2_sre, col=clg)
 
@@ -80,13 +82,4 @@ plot(l2011$B1_sre, col=clb)
 plot(l2011$B2_sre, col=clg)
 plot(l2011$B3_sre, col=clr)
 plot(l2011$B4_sre, col=clnir)
-
-
-
-
-
-
-
-
-
-
+dev.off()
