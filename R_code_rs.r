@@ -1,6 +1,6 @@
 # first work in r (for windows)
-# install raster package
-# install.package("raster")
+# install raster packages
+# install.packages("raster")
 library(raster)
 
 # get the working directory (wd)
@@ -33,7 +33,7 @@ plot (l2011$B1_sre)
 plot (l2011[[1]])
 
 # change color to grey of l2011$B1_sre
-cl <- colorRampPalette(c("black", "grey", "ligh grey")) (100)
+cl <- colorRampPalette(c("black", "grey", "light grey")) (100)
 plot(l2011$B1_sre, col=cl)
 
 # plot B1 form dark blue to blue to lught blue
