@@ -83,3 +83,35 @@ plot(l2011$B2_sre, col=clg)
 plot(l2011$B3_sre, col=clr)
 plot(l2011$B4_sre, col=clnir)
 dev.off()
+
+# plot RGB palette
+# overalay red, green and blue layers
+plotRGB(l2011, r=3, g=2, b=1, stretch="lin")
+# use NIR layer (for infrared resolution)
+# add 1 to all layers, infrared in red. 
+plotRGB(l2011, r=4, g=3, b=2, stretch="lin")
+# change the combination of value-color, map will be florescent
+plotRGB(l2011, r=3, g=4, b=2, stretch="lin")
+# focus on soil, nir in the blue layer
+plotRGB(l2011, r=3, g=2, b=4, stretch="lin")
+
+# build a multiframe 
+# on top RGB palette map (linear stretch)
+# on bottom NIR layer added to RGB palette (histogram streatch)
+par(mfrow=c(2,1))
+plotRGB(l2011, r=3, g=2, b=1, stretch="lin")
+plotRGB(l2011, r=3, g=4, b=2, stretch="hist")
+
+# upload the map-image from 1988
+l1988 <- brick("p224r63_1988.grd")
+# call object to check information inside
+l1988
+# Plot hte map "l1988"
+plot(l1988)
+
+# build a multiframe 
+# on top 1988 map (linear stretch)
+# on bottom 2011 map (linear stretch)
+par(mfrow=c(2,1))
+plotRGB(l1988, r=4, g=3, b=2, stretch="lin")
+plotRGB(l2011, r=4, g=3, b=2, stretch="lin")
