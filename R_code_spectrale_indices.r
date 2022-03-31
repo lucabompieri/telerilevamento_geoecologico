@@ -52,5 +52,5 @@ plot(dvi2006, col=cl)
 dvi_dif = dvi1992 - dvi2006
 cld <- colorRampPalette(c('blue','white','red'))(100)
 dev.off()
-plot(dvi_dif, col=cld)
+plot(dvi_dif, col=cld, main="Difference between 1992's and 2006's dvi")
 
