@@ -54,3 +54,9 @@ cld <- colorRampPalette(c('blue','white','red'))(100)
 dev.off()
 plot(dvi_dif, col=cld, main="Difference between 1992's and 2006's dvi")
 
+# Range DVI (8 bit): -255 a 255
+# Range NDVI (8 bit): -1 a 1
+
+# Range DVI (16 bit): -65535 a 65535
+# Range NDVI (16 bit): -1 a 1
+# NDVI  can be use with images too.
