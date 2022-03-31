@@ -6,7 +6,7 @@ setwd("C:/lab")
 
 # Exercise_1: import the first file -> defor1_.jpg -> nominate it "l1992"
 l1992 <- brick("defor1_.jpg")
-l1922 
+l1992 
 # to see which information are inside the object
 # l1992 <- brick("p224r63_1988.grd")
 # plot the 1992's image with RGB color palette
