@@ -40,7 +40,7 @@ dvi1992 = l1992[[1]] - l1992[[2]]
 dvi1992
 cl <- colorRampPalette(c('darkblue', 'yellow', 'red', 'black'))(100)
 # specifyng the color scheme
-plot(dvl1992, col=cl)
+plot(dvi1992, col=cl)
 
 # DVI Difference Vegetation Index 2006
 dvi2006 = l2006[[1]] - l2006[[2]]
