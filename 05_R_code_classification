@@ -16,3 +16,60 @@ SO <- brick("Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg")
 SO
 
 # RGB image -> RGB plot 
+# use linear and histogram stretch
+plotRGB(SO, 1, 2, 3, stretch="lin")
+plotRGB(SO, 1, 2, 3, stretch="hist")
+dev.off()
+
+# classify the image for the pixels layout 
+# to make it, "unsuperClass" function indicating the classes number
+SOc <- sunuperClass(SO, nClasses=3)
+# call the object to see the information inside it
+SOc
+# plot the classify image adding it to the map created during the classification
+# build a new color palette to improve the visual
+cl <-(colorRampPalette(c('yellow','black','red'))(1009
+plot(SOc$map, col=cl)
+dev.off()
+
+# import a new image.
+# use the "brick" function to import the image and assign in to an object
+# use this function because the image is a RGB
+GC <- brick("dolansprings_oli_2013088_canyon_lrg.jpg")
+# call the object to see the info
+GC
+
+# being a RGB image plot a RGB plot
+plotRGB(GC, 1, 2, 3, stretch="lin")
+plotRGB(GC, 1, 2, 3, stretch="hist")
+dev.off()
+
+# classify the image for the pixels layout 
+# to make it, "unsuperClass" function indicating the classes number
+GCc2 <- unsuperClass(GC, nClasses=2)
+# call th object to see the infos
+GCc2
+# plot the classiflied image created during the classification
+plot(GCc2$map)
+dev.off()
+
+# new classification increasing the the class number
+# to keep the same classes everytime use "set.seed()" function
+set.seed(1)
+GCc4 <- unsuperClass(GC, nClasses=4)
+# call the object to see the infos
+GCc4
+# plot the classify image adding it to the map created during the classification
+# build a new color palette to improve the visual
+cl2 <-(colorRampPalette(c('yellow','black','red'))(1009
+plot(GCc4$map, col=cl2)
+dev.off()
+
+# compare the classified image with the original
+par(mfrow=c(2,1))
+plot(GCc4, col=cl12)
+plotRGB(GC, 1, 2, 3, stretch="hist")
+dev.off()
+
+
+
