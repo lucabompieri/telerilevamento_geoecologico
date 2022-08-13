@@ -17,10 +17,10 @@ library(rasterVis)
 setwd("C:/lab/greenland") # for windows
 
 # assign to object the "raster" function to import the images
-Lst_2000 <- raster("lst_2000.tif")
-Lst_2005 <- raster("lst_2005.tif")
-Lst_2010 <- raster("lst_2010.tif")
-Lst_2015 <- raster("lst-2015.tif")
+lst_2000 <- raster("lst_2000.tif")
+lst_2005 <- raster("lst_2005.tif")
+lst_2010 <- raster("lst_2010.tif")
+lst_2015 <- raster("lst-2015.tif")
 
 # call the obiects to see their information
 lst_2000
@@ -34,12 +34,12 @@ dev.off()
 
 # build a multiframe with 4 images
 # create a new color palete to improve the visual
-cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
+cl <- colorRampPalette(c('blue','light blue','pink','red'))(100)
 par(mfrow=c(2,2))
-plot(Lst_2000, col=cl)
-plot(Lst_2005, col=cl)
-plot(Lst_2010, col=cl)
-plot(Lst_2015, col=cl)
+plot(lst_2000, col=cl)
+plot(lst_2005, col=cl)
+plot(lst_2010, col=cl)
+plot(lst_2015, col=cl)
 dev.off()
 
 # metod to import all the images
