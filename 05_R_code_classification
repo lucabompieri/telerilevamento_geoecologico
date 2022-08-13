@@ -1,0 +1,18 @@
+# 5th script
+# R_code_classification.r
+
+# upload the "raster" package
+library(raster)
+# upload the "RStollbox" package
+library(RStollbox)
+
+# set the working directory
+setwd("C:/lab/")
+
+# use the "brick" function to import the image and assign in to an object
+# use this function because the image is a RGB
+SO <- brick("Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg")
+# call the object to see the information
+SO
+
+# RGB image -> RGB plot 
