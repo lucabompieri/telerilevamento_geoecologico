@@ -68,7 +68,7 @@ geom_raster(sd3, mapping =aes(x=x, y=y, fill=layer)) +
 scale_fill_viridis(option = "magma") +
 ggtitle("Standard deviation by viridis package")
 
-# Calcolo la variabilità dell'immagine attraverso la funzione focal ed utilizzo una finestra 7x7
+# Calcolate the variability with the "focal" function using a 7*7 window
 # Calcolate in NIR (first element)
 sd7 <- focal(nir, matrix(1/49, 7, 7), fun=sd) # function based on deviation standard
 
