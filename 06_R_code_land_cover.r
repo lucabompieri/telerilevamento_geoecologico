@@ -84,11 +84,14 @@ prop_forest92
 # forest rate
 perc_forest92 <- 307202*100/tot92
 perc_forest92
-# percentuale = 90.011
+# percentuale foreste = 90.011
 # agricolture rate
 perc_agr92- 34090*100/tot92
 perc_agr92
-# percentuale = 9.988
+# percentuale agricoltura = 9.988
 
-
+# frequency for 06 data
+freq(L06c$map)
+# pixel totali
+tot <- 
 
