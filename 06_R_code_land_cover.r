@@ -13,9 +13,8 @@ library(ggplot2)
 install.packages ("gridExra")
 library(gridExtra)
 # upload "patchnetwork" package
-install.packages ("patchnetwork")
-library(patchnetwork)
-# library (network)
+install.packages ("patchwork")
+library(patchwork)
 
 # set the working directory
 setwd("C:/lab/")
@@ -37,7 +36,7 @@ L06
 # plot the 2 images in the same window
 par(mfrow=c(2,1))
 plotRGB(L92, 1, 2, 3, stretch="lin")
-plotRGB(L06, 1, 2, 3, strecth="lin")
+plotRGB(L06, 1, 2, 3, stretch="lin")
 dev.off()
 
 # build a RGB plot with the "ggplot2" function
@@ -60,7 +59,7 @@ L92c <- unsuperClass(L92, nClasses=2)
 L92c
 
 # plot the classified image and build a new color palette to improve the visual
-cl <- coloRampPalette(c('yellow','red'))(100)
+cl <- colorRampPalette(c("yellow","red"))(100)
 plot(L92c$map, col=cl)
 dev.off()
 # class 1 is for the wood, class 2 for water
@@ -73,7 +72,7 @@ plot(L06c$map, col=cl)
 dev.off()
 
 # frequency of the 2 classes pixels
-freq(L9c$map)
+freq(L92c$map)
 
 # Pixel totali
 tot92 <- 307202+34090
@@ -84,14 +83,27 @@ prop_forest92
 # forest rate
 perc_forest92 <- 307202*100/tot92
 perc_forest92
-# percentuale foreste = 90.011
+# percentuale foreste = 90.01
 # agricolture rate
 perc_agr92- 34090*100/tot92
 perc_agr92
-# percentuale agricoltura = 9.988
+# percentuale agricoltura = 9.99
 
 # frequency for 06 data
 freq(L06c$map)
 # pixel totali
-tot <- 
+tot06 <- 179331+163395
+tot06
+# hood rate
+perc_forest06 <- 179331*100/tot06
+perc_forest06
+# percentuale foreste = 52.33
+# agricolture rate
+perc_agr06 <- 163395*100/tot06
+perc_agr06
+# percentuale agricoltura = 47.67
+
+
+
+
 
