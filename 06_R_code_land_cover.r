@@ -103,7 +103,20 @@ perc_agr06 <- 163395*100/tot06
 perc_agr06
 # percentuale agricoltura = 47.67
 
+# build a data frame with three columns 
+# first one will be the class, second trappresent the forest data, and the third is for the agricolture value from 1992 and 2006
+class <- c("Forest","Agricolture")
+percent_1992 <- c(90.01, 9.99)
+percent_2006 <- c(52.33, 47.67)
+multitemporal <- data.frame(class, percent_1992, percent_2006)
+multitemporal
 
+# plot the data frame building a histogram image
+PL1 <- ggplot(multitemporal, aes(x=class, y=percent_1992, color=class)) + geom_bar(stat="identity", fill="black")
+PL2 <- ggplot(multitemporal, aes(x=class, y=percent_2006, color=class)) + geom_bar(stat="identity", fill="white")
+grid.arrange(PL1, PL2, nrow=1)
 
-
-
+# save the file as pdf in the working directory
+pdf("data_frame06")
+grid.arrange(PL1, PL2, nrow=1)
+dev.off()
