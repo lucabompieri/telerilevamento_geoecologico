@@ -57,7 +57,7 @@ okjokull_2019
 # min values :                          0,                          0,                          0 
 # max values :                        255,                        255,                        255 
 
-# plot he 2 images to see the 3 bands 
+# plot the 2 images to see the 3 bands 
 plot (okjokull_1986)
 plot (okjokull_2019)
 
@@ -84,9 +84,9 @@ summary (pca1986$model)
 #  - THE 79 % OF VARIANCE IS EXPALINED FROM THE FIRST COMPONENT -
 
 # now the second picture
-pca2022 <- rasterPCA (okjokull_2022)
-plot (pca2022$map) # pca graphic visual
-summary (pca2022$model)
+pca2019 <- rasterPCA (okjokull_2019)
+plot (pca2019$map) # pca graphic visual
+summary (pca2019$model)
 # Importance of components:
 #                            Comp.1      Comp.2      Comp.3
 # Standard deviation     78.9975387 12.72125301 7.616503808
@@ -117,27 +117,4 @@ devst <- focal(diff, w=matrix(1/25, nrow=5, ncol=5), fun=sd)
 # build a new color palette to improve the visualization
 cld <- colorRampPalette(c("blue","green","yellow","magenta"))(100)
 # plot it!
-plot(prova, col=cld, main="deviazione standard")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+plot(devst, col=cld, main="deviazione standard")
