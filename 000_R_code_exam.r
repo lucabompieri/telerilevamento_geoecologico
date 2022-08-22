@@ -26,7 +26,7 @@ library (gridExtra)
 library (viridis)
 
 # now, one of the most important things, set the working directory!
-setwd ("C:/lab/prova")
+setwd ("C:/lab/exam")
 
 # now finaly we can call our objects, for this code we need two images of two different year, in this case 1986 - 2019
 # assign to those images a name, so it's easier to call them
@@ -61,6 +61,16 @@ okjokull_2019
 plot (okjokull_1986)
 plot (okjokull_2019)
 
+# let's save this two plot!
+# okjokull 1986 components
+jpeg("okjokull_1986_components.jpg", 900, 900)
+plot(okjokull_1986)
+dev.off()
+# okjokull 2019 components
+jpeg("okjokull_2019_components.jpg", 900, 900)
+plot(okjokull_2019)
+dev.off()
+
 # now to see the images with real color need to use "ggplot2" and "gridExtra" packages functions
 # function "ggRGB" calcolate the composite raster, following the bands order "red, green, blue", using a linear stretch
 p1 <- ggRGB(okjokull_1986,r=1,g=2,b=3, stretch="lin")
@@ -68,7 +78,13 @@ p2 <- ggRGB(okjokull_2019,r=1,g=2,b=3, stretch="lin")
 
 # function "grid.arrange"  combine the two plots
 grid.arrange (p1,p2,nrow=1,ncol=2)
+# assign the plot to an object, it will be easier to call it
+rgb_picture_comparation <- grid.arrange(p1,p2,nrow=1, ncol=2)
 
+# plot it!
+jpeg("rgb picture, comparation.jpg", 900, 900)
+plot(rgb_picture_comparation)
+dev.off()
 
 # 1. PCA CALCULATION
 # to calcolate the pca use function "rasterPCA" of "RStoolbox" package
@@ -89,10 +105,20 @@ plot (pca2019$map) # pca graphic visual
 summary (pca2019$model)
 # Importance of components:
 #                            Comp.1      Comp.2      Comp.3
-# Standard deviation     78.9975387 12.72125301 7.616503808
+# Standard deviation     78.99753plot87 12.72125301 7.616503808
 # Proportion of Variance  0.9659712  0.02504937 0.008979422
 # Cumulative Proportion   0.9659712  0.99102058 1.000000000
 #  - THE 84 % OF VARIANCE IS EXPALINED FROM THE FIRST COMPONENT -
+
+# let's save this two plots
+# 1986 pca's
+jpeg("1986 pca.jpg", 900, 900)
+plot(pca1986$map, main = "1986 pca")
+dev.off()
+# 2019 pca's
+jpeg("2019 pca.jpg", 900, 900)
+plot(pca2019$map, main = "2019 pca")
+dev.off()
 
 
 # 2. LOSS OF SNOW
@@ -101,6 +127,16 @@ b1_1986 <- okjokull_1986$okjokull_tm5_1986257_lrg.1
 # assign a name to the 2019 picture first component
 b1_2019 <- okjokull_2019$okjokull_oli_2019213_lrg.1
 
+# save the two plots
+# first one
+jpeg("1986_component_1.jpg", 900, 900)
+plot(b1_1986, main = "1986 first component")
+dev.off()
+# second one
+jpeg("2019_component_1.jpg", 900, 900)
+plot(b1_2019, main = "2019 first component")
+dev.off()
+
 # calcolate the difference between the 2 components
 diff <- b1_1986 - b1_2019
 # build a new color palette to improve the visualization
@@ -108,6 +144,10 @@ cl <- colorRampPalette(c("yellow","red","blue"))(200)
 # plot the difference just calcolated
 plot(diff, col=cl, main = "perdità manto nevoso")
 
+# let's save the "difference" plot
+jpeg("diff.jpg", 900, 900)
+plot(diff, col=cl, main = "perdità manto nevoso")
+dev.off()
 
 # 3. STANDARD DEVIATION CALCULATION
 # the function to use for this is "focal", compute the focal values for the adjacent focal cells using a matrix
@@ -118,3 +158,7 @@ devst <- focal(diff, w=matrix(1/25, nrow=5, ncol=5), fun=sd)
 cld <- colorRampPalette(c("blue","green","yellow","magenta"))(100)
 # plot it!
 plot(devst, col=cld, main="deviazione standard")
+# save it!
+jpeg("standard deviation map.jpg", 900, 900)
+plot(devst, col=cld, main="deviazione standard")
+dev.off()
