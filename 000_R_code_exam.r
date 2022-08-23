@@ -22,8 +22,6 @@ library (RStoolbox)
 library (ggplot2)
 # install.packages ("gridExtra") # to plot the ggplots together
 library (gridExtra)
-# install.packages ("viridis") # to color the ggplots
-library (viridis)
 
 # now, one of the most important things, set the working directory!
 setwd ("C:/lab/exam")
@@ -59,7 +57,9 @@ okjokull_2019
 
 # plot the 2 images to see the 3 bands 
 plot (okjokull_1986)
+dev.off()
 plot (okjokull_2019)
+dev.off()
 
 # let's save this two plot!
 # okjokull 1986 components
@@ -91,6 +91,7 @@ dev.off()
 # the programm will analyse the raster's pca and return some values
 pca1986 <- rasterPCA (okjokull_1986)
 plot (pca1986$map) # pca graphic visual
+dev.off()
 summary (pca1986$model)
 # Importance of components:
 #                             Comp.1      Comp.2       Comp.3
@@ -102,6 +103,7 @@ summary (pca1986$model)
 # now the second picture
 pca2019 <- rasterPCA (okjokull_2019)
 plot (pca2019$map) # pca graphic visual
+dev.off()
 summary (pca2019$model)
 # Importance of components:
 #                            Comp.1      Comp.2      Comp.3
@@ -143,10 +145,11 @@ diff <- b1_1986 - b1_2019
 cl <- colorRampPalette(c("yellow","red","blue"))(200)
 # plot the difference just calcolated
 plot(diff, col=cl, main = "loss of snow")
+dev.off()
 
 # let's save the "difference" plot
 jpeg("diff.jpg", 900, 900)
-plot(diff, col=cl, main = "perdità manto nevoso")
+plot(diff, col=cl, main = "perdita manto nevoso")
 dev.off()
 
 # 3. STANDARD DEVIATION CALCULATION
@@ -158,8 +161,8 @@ devst <- focal(diff, w=matrix(1/25, nrow=5, ncol=5), fun=sd)
 cld <- colorRampPalette(c("blue","green","yellow","magenta"))(100)
 # plot it!
 plot(devst, col=cld, main="standard deviation")
+dev.off()
 # save it!
 jpeg("standard deviation map.jpg", 900, 900)
 plot(devst, col=cld, main="deviazione standard")
 dev.off()
-
