@@ -1,7 +1,7 @@
 # Hi everyone!
 # this is the code i prepared for my exam, let's see it!
 
-# this code will focus to the loss of snow of the Okjokull gòacier, in Iceland
+# this code will focus to the loss of snow of the Okjokull glacier, in Iceland
 # the pictures used have been downloaded from: https://earthobservatory.nasa.gov/images/145439/okjokull-remembered
 
 # the code will show the following ponits:
