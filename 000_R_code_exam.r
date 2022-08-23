@@ -113,11 +113,11 @@ summary (pca2019$model)
 # let's save this two plots
 # 1986 pca's
 jpeg("1986 pca.jpg", 900, 900)
-plot(pca1986$map, main = "1986 pca")
+plot(pca1986$map)
 dev.off()
 # 2019 pca's
 jpeg("2019 pca.jpg", 900, 900)
-plot(pca2019$map, main = "2019 pca")
+plot(pca2019$map)
 dev.off()
 
 
@@ -142,7 +142,7 @@ diff <- b1_1986 - b1_2019
 # build a new color palette to improve the visualization
 cl <- colorRampPalette(c("yellow","red","blue"))(200)
 # plot the difference just calcolated
-plot(diff, col=cl, main = "perdità manto nevoso")
+plot(diff, col=cl, main = "loss of snow")
 
 # let's save the "difference" plot
 jpeg("diff.jpg", 900, 900)
@@ -157,8 +157,9 @@ devst <- focal(diff, w=matrix(1/25, nrow=5, ncol=5), fun=sd)
 # build a new color palette to improve the visualization
 cld <- colorRampPalette(c("blue","green","yellow","magenta"))(100)
 # plot it!
-plot(devst, col=cld, main="deviazione standard")
+plot(devst, col=cld, main="standard deviation")
 # save it!
 jpeg("standard deviation map.jpg", 900, 900)
 plot(devst, col=cld, main="deviazione standard")
 dev.off()
+
