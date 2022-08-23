@@ -97,7 +97,7 @@ summary (pca1986$model)
 # Standard deviation     122.7108850 19.69613913 12.247487767
 # Proportion of Variance   0.9655077  0.02487435  0.009617974
 # Cumulative Proportion    0.9655077  0.99038203  1.000000000
-#  - THE 79 % OF VARIANCE IS EXPALINED FROM THE FIRST COMPONENT -
+#  - THE 96 % OF VARIANCE IS EXPALINED FROM THE FIRST COMPONENT -
 
 # now the second picture
 pca2019 <- rasterPCA (okjokull_2019)
@@ -108,7 +108,7 @@ summary (pca2019$model)
 # Standard deviation     78.99753plot87 12.72125301 7.616503808
 # Proportion of Variance  0.9659712  0.02504937 0.008979422
 # Cumulative Proportion   0.9659712  0.99102058 1.000000000
-#  - THE 84 % OF VARIANCE IS EXPALINED FROM THE FIRST COMPONENT -
+#  - THE 96 % OF VARIANCE IS EXPALINED FROM THE FIRST COMPONENT -
 
 # let's save this two plots
 # 1986 pca's
