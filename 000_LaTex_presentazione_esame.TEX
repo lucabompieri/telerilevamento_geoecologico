@@ -1,0 +1,176 @@
+\documentclass{beamer}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[T1]{fontenc}
+
+
+\usetheme{Frankfurt}
+\usecolortheme{dove}
+
+\title{Esame Telerilevamento Geoecologico}
+\institute{Alma Mater Studiorum - Università di Bologna\\Telerilevamento Geo-Ecologico}
+\author{Studente: Luca Bompieri\\Docente: Duccio Rocchini}
+\date{A.A. 2021/2022}
+\logo{\includegraphics[height=1cm]{log.png}}
+
+
+\begin{document}
+
+
+\maketitle
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Indice}
+\tableofcontents[currentsection, currentsubsection]
+\end{frame}
+}
+\AtBeginSubsection[] {
+    \begin{frame}
+    \frametitle{Indice} 
+    \tableofcontents[currentsubsection]  
+    \end{frame}
+}
+
+
+\section{Scopo del progetto}
+
+\begin{frame}{Scopo del progetto}
+\begin{itemize}
+    \item  Mostrare la perdita di manto nevoso del ghiacciao Okjökull e delle aree limitrofe, in un intervallo di tempo di 33 anni (1986-2019).
+\end{itemize}
+\end{frame}
+
+\section{Inquadramento}
+
+\begin{frame}{Inquadramento geografico}
+\begin{itemize}
+    \item L'area di studio, riquadro rosso in carta, risulta essere localizzata in Inslanda, a nord-est di Reykjavík. 
+\end{itemize}
+    \includegraphics[width=1\textwidth]{0_inquadramento.png}
+    \centering
+\end{frame}
+
+\begin{frame}{Ingrandimento area di studio}
+\begin{itemize}
+    \item Il riquadro rosso in carta indica l'effettiva area del  ghiacciao Okjökull. 
+\end{itemize}
+    \includegraphics[width=175, height=175]{ingrandimento.jpg}
+    \centering
+\end{frame}
+
+\section{Metodi di analisi}
+
+\begin{frame}{Metodi}
+\begin{itemize}
+    \item Caricamento e preparazione iniziale delle immagini
+    
+    \bigskip
+    
+    \item \pause Calcolo pca (principal component analysis) delle due immagini
+    
+    \bigskip
+    
+    \item \pause Calcolo della perdita di manto nevoso
+    
+    \bigskip
+    
+    \item \pause Calcolo della deviazione standard per mostrare i punti più significativi
+\end{itemize}    
+\end{frame}
+
+\section{Analisi immagini}
+
+\begin{frame}{Script usato}
+    \begin{tiny}
+        \lstinputlisting[language=R]{preparazione_immagini.R}
+    \end{tiny}
+\end{frame}
+
+\begin{frame}{Componenti Okjökull 1986}
+    \includegraphics[width=7cm, height=7cm]{okjokull_1986_components.jpg}
+    \centering
+\end{frame}
+
+\begin{frame}{Componenti Okjökull 2019}
+    \includegraphics[width=7cm, height=7cm]{okjokull_2019_components.jpg}
+    \centering
+\end{frame}
+
+\begin{frame}{Immagini RGB comparate [1986-2019]}
+    \includegraphics[width=1\textwidth]{rgb_picture.jpg}
+    \centering
+\end{frame}
+
+\section{PCA}
+
+\begin{frame}{Script usato}
+    \begin{tiny}
+        \lstinputlisting[language=R]{pca.R}
+    \end{tiny}
+\end{frame}
+
+\begin{frame}{Componenti pca 1986}
+    \includegraphics[width=7cm, height=7cm]{1986 pca.jpg}
+    \centering
+\end{frame}
+
+\begin{frame}{Componenti pca 2019}
+    \includegraphics[width=7cm, height=7cm]{2019 pca.jpg}
+    \centering
+\end{frame}
+
+\section{Diff. neve}
+
+\begin{frame}{Script usato}
+    \begin{tiny}
+        \lstinputlisting[language=R]{neve.R}
+    \end{tiny}
+\end{frame}
+
+\begin{frame}{Componente 1 pca 1986}
+    \includegraphics[width=7cm, height=7cm]{1986_component_1.jpg}
+    \centering
+\end{frame}
+
+\begin{frame}{Componente 1 pca 2019}
+    \includegraphics[width=7cm,height=7cm]{2019_component_1.jpg}
+    \centering
+\end{frame}
+
+\begin{frame}{Differenza tra le due immagini}
+    \includegraphics[width=7cm,height=7cm]{diff.jpg}
+    \centering
+\end{frame}
+
+\section{Dev.St.}
+
+\begin{frame}{Script usato}
+    \begin{tiny}
+        \lstinputlisting[language=R]{devst.R}
+    \end{tiny}
+\end{frame}
+
+\begin{frame}{Mappa analisi deviazione standard}
+    \includegraphics[width=7cm, height=7cm]{standard deviation map.jpg}
+    \centering
+\end{frame}
+
+\section{Conclusioni}
+
+\begin{frame}
+\begin{itemize}
+    \item Le immagini prodotte mostrano come,  nell'intervallo trascorso tra i due anni di studio, 1986-2019, la perdita di manto nevoso e lo scioglimento parziale dei ghiacciai siano più concentrati nelle aree basali delle strutture, mentre le aree più centrali risultano essere praticamente invariate.
+    Ghiacciai di piccole dimensioni come, l'Okjökull, risultano ormai essere estinti.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+    \item Grazie dell'attenzione.
+\end{itemize}
+\end{frame}
+
+\end{document}
+
